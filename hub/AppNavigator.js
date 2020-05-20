@@ -3,7 +3,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/Home';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login'
-
+import UserHome from './src/screens/UserHome'
 
 
 const AppNavigator = createStackNavigator({
@@ -16,7 +16,11 @@ const AppNavigator = createStackNavigator({
     screen:Login
     },
     Register:{
-        screen:Register
+    screen:Register
+    },
+    UserHome:{
+
+    screen:UserHome
     }
 
 }, {

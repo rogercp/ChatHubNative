@@ -37,7 +37,7 @@ const Login = (props) => {
                         const value = await AsyncStorage.getItem('token')
                           if(value !== null) {
                               console.log(value,"value in login")
-                            props.navigation.navigate('UserHome')
+                              props.navigation.navigate('UserHome')
                         }
                         } catch(e) {
                           // error reading value
