@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from "react";
 import { Text, StyleSheet, View, Button, TouchableOpacity,TextInput } from "react-native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import {AsyncStorage} from "react-native";
-
+import AsyncStorage from '@react-native-community/async-storage';
+import axios from 'axios'
 
 
 const Login = (props) => {
@@ -19,9 +19,8 @@ const Login = (props) => {
 
         const login = () =>{
             axios
-            .post('http://192.168.68.103:8000/user/login/',userInfo)
+            .post('http://127.0.0.1:8000/user/login/',userInfo)
             .then(res => {
-                
                 
                     setValue = async () => {
                         try {
