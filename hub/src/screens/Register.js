@@ -17,16 +17,46 @@ const Register = (props) => {
         })
     
 
-        const register = () =>{
-            fetch('http://127.0.0.1:8000/user/registration', {
-              method: 'POST',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(userInfo),
-            });
-            }
+    
+
+            const register = () =>{
+              axios
+              .post('http://127.0.0.1:8000/user/registration',userInfo)
+              .then(res => {
+                  
+                      setValue = async () => {
+                          try {
+                          await AsyncStorage.setItem('token', `${res.data.key}`)
+                          } catch (e) {
+                          // saving error
+                          }
+                      }
+                      setValue()
+      
+                      getMyValue = async () => {
+      
+                          try {
+                          const value = await AsyncStorage.getItem('token')
+                            if(value !== null) {
+                                console.log(value,"value in login")
+                                props.navigation.navigate('UserHome')                        
+                              }
+                          } catch(e) {
+                            // error reading value
+                          }
+                        }
+                        getMyValue()
+                                  
+                   
+              })
+              
+          
+              .catch(err => {
+                
+                  console.log(err)
+              });
+          
+          }
             
 
 

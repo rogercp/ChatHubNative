@@ -8,6 +8,7 @@ import UserHome from './src/screens/UserHome'
 
 const AppNavigator = createStackNavigator({
   
+
     Home:{
     screen:HomeScreen
     },
@@ -24,8 +25,12 @@ const AppNavigator = createStackNavigator({
     }
 
 }, {
+    index: 0,
     initialRouteName: 'Home',
-    headerMode: 'none'
+    headerMode: 'none',
+    navigationOptions: {
+      gesturesEnabled: false
+    }
   })
 
-export default createAppContainer(AppNavigator)
+export default AppNavigator
