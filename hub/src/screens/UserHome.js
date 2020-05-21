@@ -1,5 +1,7 @@
 import React, {useEffect,useState} from "react";
 import { Text, StyleSheet,Button,View,Image,ImageBackground} from "react-native";
+// import axiosWithAuth from '../helpers/AxiosWithAuth'
+import axios from 'axios';
 
 
 const UserHome = (props) => {
@@ -11,26 +13,58 @@ const UserHome = (props) => {
 
    useEffect(() => {
     // initUser()  
+
+    //  console.log(axiosWithAuth(),'isndied userhome')
+    
+    
        }, [])
 
        
     
        
-        // const initUser = ()=>{
-        //     AxiosWithAuth().get('http://192.168.68.103:8000/user/init/')
-        //     .then(res => {
-        //         console.log('init', res)
-        //         console.log(res.data)
-                
-        //         })
-        //         .catch(err => {
-                
-        //             console.log(err)
-        //         });
-            
-            
-        // }
+        const initUser = ()=>{
 
+            AsyncStorage.getItem('token').then((response)=>{
+                console.log(response,"response")
+                const item = JSON.parse(response)
+            axios
+             .get('http://127.0.0.1:8000/user/init',{
+                headers: {
+                 'Content-Type': 'application/json',
+                   Authorization: `Token ${item}`
+                    
+               }
+              .then(res => {
+                  
+                    console.log(res,"responmse from init")
+                                  
+                   
+              })
+                
+          })
+        
+            
+
+
+
+
+
+
+
+            // axiosWithAuth().get('http://127.0.0.1:8000/user/init')
+            // .then(res => {
+            //     console.log('init', res)
+            //     console.log(res.data)
+                
+            //     })
+            //     .catch(err => {
+                
+            //         console.log(err)
+            //     });
+            
+            
+            })
+    }
        
 
   return (

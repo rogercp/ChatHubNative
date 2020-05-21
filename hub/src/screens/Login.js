@@ -24,7 +24,7 @@ const Login = (props) => {
                 
                     setValue = async () => {
                         try {
-                        await AsyncStorage.setItem('token', `${res.data.key}`)
+                        await AsyncStorage.setItem('token', JSON.stringify(`${res.data.key}`))
                         } catch (e) {
                         // saving error
                         }
