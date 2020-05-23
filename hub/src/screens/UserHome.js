@@ -3,15 +3,18 @@ import { Text, StyleSheet,Button,View,Image,ImageBackground} from "react-native"
 // import axiosWithAuth from '../helpers/AxiosWithAuth'
 import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
+import NavBar from '../components/NavBar'
+
+
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
 
-
 const UserHome = (props) => {
 
     const [userInfo,setUserInfo]= useState({
+      username:'',
 
     })
 
@@ -59,7 +62,7 @@ const UserHome = (props) => {
             }
             setValueUUID()
 
-
+            setUserInfo({...userInfo,username:res.data.name})
 
                     console.log(res.data,"responmse from init")
                                   
@@ -74,25 +77,6 @@ const UserHome = (props) => {
           })
         
             
-
-
-
-
-
-
-
-            // axiosWithAuth().get('http://127.0.0.1:8000/user/init')
-            // .then(res => {
-            //     console.log('init', res)
-            //     console.log(res.data)
-                
-            //     })
-            //     .catch(err => {
-                
-            //         console.log(err)
-            //     });
-            
-            
         
     }
        
@@ -101,8 +85,9 @@ const UserHome = (props) => {
 <>
 
    <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-   <Text>Hello im in user home</Text>
-   
+  <Text>Hello {userInfo.username} </Text>
+  <NavBar navigate={props.navigation.navigate}   props={props}/>
+
    </View>
 
 </>
