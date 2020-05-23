@@ -2,6 +2,11 @@ import React, {useEffect,useState} from "react";
 import { Text, StyleSheet,Button,View,Image,ImageBackground} from "react-native";
 // import axiosWithAuth from '../helpers/AxiosWithAuth'
 import axios from 'axios';
+import AsyncStorage from '@react-native-community/async-storage';
+
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+
 
 
 const UserHome = (props) => {
@@ -12,7 +17,7 @@ const UserHome = (props) => {
 
 
    useEffect(() => {
-    // initUser()  
+    initUser()  
 
     //  console.log(axiosWithAuth(),'isndied userhome')
     
@@ -20,26 +25,51 @@ const UserHome = (props) => {
        }, [])
 
        
-    
-       
+     
         const initUser = ()=>{
 
             AsyncStorage.getItem('token').then((response)=>{
-                console.log(response,"response")
                 const item = JSON.parse(response)
+                console.log(item,"item")
             axios
-             .get('http://127.0.0.1:8000/user/init',{
+             .get('http://127.0.0.1:8000/user/init/',{
                 headers: {
                  'Content-Type': 'application/json',
-                   Authorization: `Token ${item}`
+                 Authorization: `Token ${item}`
                     
-               }
+               }})
               .then(res => {
                   
-                    console.log(res,"responmse from init")
+
+                setValueName = async () => {
+                  try {
+                  await AsyncStorage.setItem('username', JSON.stringify(`${res.data.name}`))
+                  } catch (e) {
+                  // saving error
+                  }
+              }
+              setValueName()
+
+              setValueUUID = async () => {
+                try {
+                await AsyncStorage.setItem('id', JSON.stringify(`${res.data.uuid}`))
+                } catch (e) {
+                // saving error
+                }
+            }
+            setValueUUID()
+
+
+
+                    console.log(res.data,"responmse from init")
                                   
                    
-              })
+              }).catch(error=>
+                  {
+
+                    console.log(error)
+                  }
+              )
                 
           })
         
@@ -63,7 +93,7 @@ const UserHome = (props) => {
             //     });
             
             
-            })
+        
     }
        
 
