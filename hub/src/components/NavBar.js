@@ -8,34 +8,42 @@ const NavBar = (props) => {
     Icon.loadFont();
   return (
 
-<View  style={{position: 'absolute', flexDirection:"row", bottom: 0, justifyContent: 'space-evenly', alignItems: 'center',backgroundColor:"lightgrey",width:"100%",height:"12%"}}>
+<View  style={{position: 'absolute', flexDirection:"row", bottom: 0, justifyContent: 'space-evenly', alignItems: 'center',backgroundColor:"lightgrey",width:"100%",height:"11%"}}>
 
-
-<Icon
+<Icon.Button
+borderRadius={100}
+backgroundColor="#3b5998"
 size={50}
   raised
   name='home'
-  color='#003d99'
+  color='white'
   onPress={() => props.navigate('UserHome')}/>
 
-<Icon
+
+<Icon.Button
+borderRadius={100}
+backgroundColor="#3b5998"
  size={50}
   raised
   name='search'
-  color='#003d99'
+  color='white'
   onPress={() => props.navigate('Search')}/>
-<Icon
+<Icon.Button
+borderRadius={100}
+backgroundColor="#3b5998"
 size={50}
   raised
   name='chat'
-  color='#003d99'
+  color='white'
   onPress={() => props.navigate('Messages')}/>
 
-<Icon
+<Icon.Button
+borderRadius={100}
+backgroundColor="#3b5998"
 size={50}
   raised
   name='settings'
-  color='#003d99'
+  color='white'
   onPress={() => props.navigate('Settings')}/>
 
 
