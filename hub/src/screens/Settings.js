@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { Button, StyleSheet,View,FlatList,Text } from "react-native";
 import Axios from "axios";
 import NavBar from '../components/NavBar'
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/AntDesign'
 import AsyncStorage from '@react-native-community/async-storage';
 
 
@@ -29,8 +29,8 @@ const Settings = (props) => {
    borderRadius={100}
     size={50}
      raised
-     name="ios-person"
-     color='blue'
+     name="logout"
+     color='#3b5998'
 
    onPress={logout}/>
 

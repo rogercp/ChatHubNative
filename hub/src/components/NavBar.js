@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, StyleSheet,View,FlatList,Text } from "react-native";
 // import { Button as Btt } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/MaterialIcons'
+import Icon from 'react-native-vector-icons/AntDesign'
+
 // import { Icon } from 'react-native-elements'
 const NavBar = (props) => {
 
@@ -12,38 +13,34 @@ const NavBar = (props) => {
 
 <Icon
 borderRadius={100}
-backgroundColor="#3b5998"
 size={50}
   raised
   name='home'
-  color='white'
+  color='#3b5998'
   onPress={() => props.navigate('UserHome')}/>
 
 
 <Icon
 borderRadius={100}
-backgroundColor="#3b5998"
  size={50}
   raised
-  name='search'
-  color='white'
+  name='search1'
+  color='#3b5998'
   onPress={() => props.navigate('Search')}/>
 <Icon
 borderRadius={100}
-backgroundColor="#3b5998"
 size={50}
   raised
-  name='chat'
-  color='white'
+  name='message1'
+  color='#3b5998'
   onPress={() => props.navigate('Messages')}/>
 
 <Icon
 borderRadius={100}
-backgroundColor="#3b5998"
 size={50}
   raised
-  name='settings'
-  color='white'
+  name='user'
+  color='#3b5998'
   onPress={() => props.navigate('Settings')}/>
 
 
