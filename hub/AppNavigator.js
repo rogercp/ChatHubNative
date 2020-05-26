@@ -4,7 +4,7 @@ import HomeScreen from './src/Home';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login'
 import UserHome from './src/screens/UserHome'
-
+import Settings from './src/screens/Settings'
 
 const AppNavigator = createStackNavigator({
   
@@ -22,7 +22,11 @@ const AppNavigator = createStackNavigator({
     UserHome:{
 
     screen:UserHome
-    }
+    },
+    Settings:{
+
+      screen:Settings
+      }
 
 }, {
     index: 0,

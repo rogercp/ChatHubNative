@@ -10,7 +10,7 @@ const NavBar = (props) => {
 
 <View  style={{position: 'absolute', flexDirection:"row", bottom: 0, justifyContent: 'space-evenly', alignItems: 'center',backgroundColor:"lightgrey",width:"100%",height:"11%"}}>
 
-<Icon.Button
+<Icon
 borderRadius={100}
 backgroundColor="#3b5998"
 size={50}
@@ -20,7 +20,7 @@ size={50}
   onPress={() => props.navigate('UserHome')}/>
 
 
-<Icon.Button
+<Icon
 borderRadius={100}
 backgroundColor="#3b5998"
  size={50}
@@ -28,7 +28,7 @@ backgroundColor="#3b5998"
   name='search'
   color='white'
   onPress={() => props.navigate('Search')}/>
-<Icon.Button
+<Icon
 borderRadius={100}
 backgroundColor="#3b5998"
 size={50}
@@ -37,7 +37,7 @@ size={50}
   color='white'
   onPress={() => props.navigate('Messages')}/>
 
-<Icon.Button
+<Icon
 borderRadius={100}
 backgroundColor="#3b5998"
 size={50}
