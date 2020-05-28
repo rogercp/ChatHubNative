@@ -4,7 +4,7 @@ import { Text, StyleSheet,Button,View,Image,ImageBackground} from "react-native"
 import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 import NavBar from '../components/NavBar'
-
+import Boards from './Boards'
 
 
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -87,6 +87,8 @@ const UserHome = (props) => {
    <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
   <Text>Hello {userInfo.username} </Text>
   <NavBar navigate={props.navigation.navigate}   props={props}/>
+
+    <Boards/>
 
    </View>
 

@@ -5,6 +5,8 @@ import Register from './src/screens/Register';
 import Login from './src/screens/Login'
 import UserHome from './src/screens/UserHome'
 import Settings from './src/screens/Settings'
+import Boards from './src/screens/Boards'
+
 
 const AppNavigator = createStackNavigator({
   
@@ -26,7 +28,11 @@ const AppNavigator = createStackNavigator({
     Settings:{
 
       screen:Settings
-      }
+    },
+    Boards:{
+        screen:Boards
+    }
+
 
 }, {
     index: 0,
