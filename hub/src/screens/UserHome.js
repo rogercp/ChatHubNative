@@ -88,8 +88,11 @@ const UserHome = (props) => {
   <Text>Hello {userInfo.username} </Text>
   <NavBar navigate={props.navigation.navigate}   props={props}/>
 
-    <Boards/>
-
+  <Button
+      
+        onPress={()=>props.navigation.navigate('Boards')}
+         title="go to Boards"
+                    />
    </View>
 
 </>
