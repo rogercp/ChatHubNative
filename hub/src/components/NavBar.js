@@ -19,7 +19,6 @@ size={50}
   color='#3b5998'
   onPress={() => props.navigate('UserHome')}/>
 
-
 <Icon
 borderRadius={100}
  size={50}

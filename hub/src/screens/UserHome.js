@@ -73,11 +73,7 @@ const UserHome = (props) => {
                     console.log(error)
                   }
               )
-                
-          })
-        
-            
-        
+          }) 
     }
        
 

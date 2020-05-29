@@ -14,9 +14,9 @@ const Boards = (props) => {
 
   return (
 
-    <>
-  <BackButtonBar/>
-  
+<>               
+              
+
   <FlatList
      horizontal 
     keyExtractor={(item)=> item.name}
@@ -24,8 +24,10 @@ const Boards = (props) => {
       data={data1}
       renderItem={({item}) => {
             return (
-                <View style={{paddingTop:"25%",width: Dimensions.get('window').width,height: Dimensions.get('window').height}}>
-                <IndividualBaordList item={item}/>
+                <View style={{paddingTop:"27%",width: Dimensions.get('window').width,height: Dimensions.get('window').height}}>
+                <BackButtonBar navigate={props.navigation.navigate}   props={props}/>
+
+                <IndividualBaordList item={item}  />
                 </View>
 
             );

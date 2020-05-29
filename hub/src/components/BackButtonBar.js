@@ -9,15 +9,15 @@ const BackButtonNavBar = (props) => {
     Icon.loadFont();
   return (
 
-<View  style={{position: 'absolute', flexDirection:"row", top: 0, justifyContent: 'space-evenly', alignItems: 'center',backgroundColor:"lightgrey",width:"100%",height:"8%",marginTop:"9%"}}>
+<View  style={{position: 'absolute', flexDirection:"row", top: 0,backgroundColor:"lightgrey",width:"100%",height:"9%",marginTop:"9%",padding:"2%"}}>
 
 <Icon
 borderRadius={100}
 size={50}
-  raised
-  name='leftcircleo'
-  color='#3b5998'
-  onPress={() => props.navigate('UserHome')}/>
+raised
+name='leftcircleo'
+color='#3b5998'
+onPress={() => props.navigate('UserHome')}/>
 
 
 
