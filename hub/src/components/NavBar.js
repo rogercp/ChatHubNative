@@ -32,7 +32,7 @@ size={50}
   raised
   name='message1'
   color='#3b5998'
-  onPress={() => props.navigate('Messages')}/>
+  onPress={() => props.navigate('MessagesList')}/>
 
 <Icon
 borderRadius={100}

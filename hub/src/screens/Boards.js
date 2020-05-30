@@ -4,6 +4,7 @@ import AxiosWithAuth from '../helpers/AxiosWithAuth'
 import Axios from "axios";
 import IndividualBaordList from '../components/IndividualBoardList'
 import BackButtonBar from '../components/BackButtonBar'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 const Boards = (props) => {
 
@@ -16,7 +17,17 @@ const Boards = (props) => {
 
 <>               
               
+<View >
+<Icon
+style={styles.icon}
+borderRadius={100}
+size={50}
+raised
+name='leftcircleo'
+color='#3b5998'
+onPress={() => props.navigation.navigate('UserHome')}/>
 
+</View>
   <FlatList
      horizontal 
     keyExtractor={(item)=> item.name}
@@ -24,9 +35,7 @@ const Boards = (props) => {
       data={data1}
       renderItem={({item}) => {
             return (
-                <View style={{paddingTop:"27%",width: Dimensions.get('window').width,height: Dimensions.get('window').height}}>
-                <BackButtonBar navigate={props.navigation.navigate}   props={props}/>
-
+                <View style={{width: Dimensions.get('window').width,height: Dimensions.get('window').height}}>
                 <IndividualBaordList item={item}  />
                 </View>
 
@@ -43,7 +52,11 @@ const Boards = (props) => {
 };
 
 const styles = StyleSheet.create({
-
+    icon:{
+        marginTop:"9%",
+        padding:"2%"
+    
+    },
 });
 
 export default Boards;

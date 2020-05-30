@@ -6,7 +6,8 @@ import Login from './src/screens/Login'
 import UserHome from './src/screens/UserHome'
 import Settings from './src/screens/Settings'
 import Boards from './src/screens/Boards'
-
+import MessagesList from './src/screens/MessagesList'
+import Message from './src/screens/Message'
 
 const AppNavigator = createStackNavigator({
   
@@ -31,6 +32,12 @@ const AppNavigator = createStackNavigator({
     },
     Boards:{
         screen:Boards
+    },
+    MessagesList:{
+      screen :MessagesList
+    },
+    Message:{
+      screen:Message
     }
 
 
