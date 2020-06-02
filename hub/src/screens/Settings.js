@@ -23,22 +23,21 @@ const Settings = (props) => {
 <>
 
    <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-   <View>
+   <View >
+<Icon
+style={styles.icon}
+borderRadius={100}
+size={50}
+raised
+name='logout'
+color='#3b5998'
+onPress={logout}/>
 
-   <Icon
-   borderRadius={100}
-    size={50}
-     raised
-     name="logout"
-     color='#3b5998'
+</View>
 
-   onPress={logout}/>
 
-   </View>
- 
-   
        
-        <NavBar navigate={props.navigation.navigate}   props={props}/>
+<NavBar navigate={props.navigation.navigate}   props={props}/>
 
         
 
@@ -56,6 +55,12 @@ const Settings = (props) => {
 
 
 const styles = StyleSheet.create({
+    icon:{
+        top:0,
+        marginTop:"9%",
+        padding:"2%"
+    
+    },
     buttonBox:{
       width: "25%",
       backgroundColor:'white'
