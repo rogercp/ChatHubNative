@@ -41,7 +41,6 @@ onPress={logout}/>
 
         
 
-
    <Text>Settings</Text>
    
 

@@ -28,6 +28,7 @@ color='#3b5998'
 onPress={() => props.navigation.navigate('UserHome')}/>
 
 </View>
+
   <FlatList
      horizontal 
     keyExtractor={(item)=> item.name}

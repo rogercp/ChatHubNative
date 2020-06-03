@@ -3,6 +3,7 @@ import { Text, StyleSheet,Button,View,ScrollView,ImageBackground} from "react-na
 import Axios from "axios";
 import NavBar from '../components/NavBar'
 import { GiftedChat } from 'react-native-gifted-chat'
+import { Card, ListItem } from 'react-native-elements'
 
 
 const MessagesList = (props) => {
@@ -16,22 +17,100 @@ const MessagesList = (props) => {
 
 
      
+    const users = [
+        {
+           name: 'brynn',
+           avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+        },
+        {
+          name: 'brynn',
+          avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+       },
+       {
+        name: 'brynn',
+        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+     },
+     {
+      name: 'brynn',
+      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+   },
+   {
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+  },
+  {
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+ },
+ {
+   name: 'brynn',
+   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+ name: 'brynn',
+ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+name: 'brynn',
+avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+name: 'brynn',
+avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+    name: 'brynn',
+    avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+ },
+ {
+   name: 'brynn',
+   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+ name: 'brynn',
+ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+name: 'brynn',
+avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+{
+name: 'brynn',
+avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+},
+       ]
 
   return (
 
-   <ScrollView contentContainerStyle={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-   <Text>Messages</Text>
-   <Button
-    style={styles.button}
-     onPress={() => props.navigation.navigate('Message')}
-        title="click to open messageer"
-      />
- <NavBar  navigate={props.navigation.navigate}   props={props}/>
- 
-
-</ScrollView>
 
 
+<>
+
+    <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+  <Card title="Messages" containerStyle={{paddingBottom: 30,width:"100%",height:"89%",top:0}} >
+  <ScrollView>
+     { users.map((u, i) => {
+        return (
+          <ListItem
+          onPress={() => props.navigation.navigate('Message')}
+          key={i}
+            roundAvatar
+            title={u.name}
+            avatar={{uri:u.avatar}}
+          />
+        );
+      })
+    }
+    </ScrollView>
+    
+  </Card>
+   
+  
+     </View>
+  
+     <NavBar navigate={props.navigation.navigate}   props={props}/>
+  
+</>
     
 
 
