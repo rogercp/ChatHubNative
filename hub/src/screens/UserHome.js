@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import NavBar from '../components/NavBar'
 import Boards from './Boards'
 import { Card, ListItem } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -13,6 +14,8 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 
 
 const UserHome = (props) => {
+
+  Icon.loadFont();
 
     const [userInfo,setUserInfo]= useState({
       username:'',
@@ -77,12 +80,21 @@ const UserHome = (props) => {
           }) 
     }
        
+    const randomRgb = () =>{
+
+      const red = Math.floor(Math.random()*256)
+      const green = Math.floor(Math.random()*256)
+      const blue = Math.floor(Math.random()*256)
+  
+      return `rgb(${red},${green},${blue})`
+  }
+
 
 
     const users = [
       {
          name: 'brynn',
-         avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+         avatar: randomRgb()
       },
       {
         name: 'brynn',
@@ -158,7 +170,7 @@ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
 },
 {
 name: 'brynn',
-avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+avatar: randomRgb()
 },
      ]
      
@@ -167,18 +179,31 @@ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
 <>
 
    <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-  
-<Card title="Your Boards" containerStyle={{paddingBottom: 30,width:"100%",height:"89%",top:0}} >
-<ScrollView>
+   <Icon
+    borderRadius={100}
+    size={60}
+    raised
+    name='add'
+    color='#3b5998'
+    />
+
+<Card title="Your Boards" containerStyle={{paddingBottom: 50,height:"84%",width:"100%",top:0}} >
+<ScrollView containerStyle={{}}>
    { users.map((u, i) => {
       return (
+        
         <ListItem
         onPress={()=>props.navigation.navigate('Boards')}
           key={i}
           roundAvatar
           title={u.name}
-          avatar={{uri:u.avatar}}
+          leftAvatar={
+            <View style={{height:40,width:40,backgroundColor:randomRgb()}} />
+          }
+           bottomDivider
         />
+        
+   
       );
     })
   }

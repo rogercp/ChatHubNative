@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from "react";
-import { Text, StyleSheet,Button,View,ScrollView,ImageBackground} from "react-native";
+import { Text, StyleSheet,Button,View,ScrollView,ImageBackground,TextInput} from "react-native";
 import Axios from "axios";
 import NavBar from '../components/NavBar'
 import { GiftedChat } from 'react-native-gifted-chat'
@@ -87,7 +87,17 @@ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
 <>
 
     <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-  <Card title="Messages" containerStyle={{paddingBottom: 30,width:"100%",height:"89%",top:0}} >
+    <TextInput 
+               keyboardAppearance="dark"
+                name = 'username'
+                placeholder='search users'
+                autoCapitalize = "none"
+                autoCorrect= {false}
+                style={styles.input} 
+                // value={userInfo.username}
+                // onChangeText={(newValue)=>setUserInfo({...userInfo,username:newValue})}
+                />
+  <Card title="Messages" containerStyle={{paddingBottom: 30,width:"100%",height:"80%",top:0}} >
   <ScrollView>
      { users.map((u, i) => {
         return (
@@ -97,6 +107,7 @@ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
             roundAvatar
             title={u.name}
             avatar={{uri:u.avatar}}
+            bottomDivider
           />
         );
       })
@@ -128,7 +139,13 @@ buttonBox:{
     zIndex:10,
     fontSize: 30,
     color:"#0275d8"
-  }
+  },  
+  input: {
+    width:'99%',
+    height:40,
+      borderColor:'black',
+      borderWidth:1
+    },
 });
 
 export default MessagesList;
