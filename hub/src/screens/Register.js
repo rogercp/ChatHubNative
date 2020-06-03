@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import { Text, StyleSheet, ScrollView, View,Button, TouchableOpacity,TextInput } from "react-native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import AsyncStorage from '@react-native-community/async-storage';
+import { Input } from 'react-native-elements';
 
 
 
@@ -65,7 +66,7 @@ const Register = (props) => {
         <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center',backgroundColor:"lightgrey"}}>
 
         <Text style={{fontSize:30}}>Register</Text>
-        <TextInput 
+        <Input 
         keyboardAppearance="dark"
         name = 'email'
         returnKeyType='next'
@@ -78,7 +79,7 @@ const Register = (props) => {
         />
         <Text> {userInfo.email}</Text>
 
-        <TextInput
+        <Input
                         keyboardAppearance="dark"
  
         name = 'username'
@@ -91,7 +92,7 @@ const Register = (props) => {
         />
         <Text> {userInfo.username}</Text>
 
-        <TextInput 
+        <Input 
         keyboardAppearance="dark"
         name = 'password1'
         placeholder='password'
@@ -103,7 +104,7 @@ const Register = (props) => {
         />
         <Text> {userInfo.password1}</Text>
 
-        <TextInput 
+        <Input 
         keyboardAppearance="dark"
         name = 'password2'
         placeholder='validate password'

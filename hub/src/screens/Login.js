@@ -3,6 +3,7 @@ import { Text, StyleSheet, View, Button, TouchableOpacity,TextInput } from "reac
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios'
+import { Input } from 'react-native-elements';
 
 
 const Login = (props) => {
@@ -77,7 +78,7 @@ const Login = (props) => {
                 style={styles.input} 
                 value= {userInfo.email}</Text>
          */}
-                <TextInput 
+                <Input 
                keyboardAppearance="dark"
                 name = 'username'
                 placeholder='username'
@@ -89,7 +90,7 @@ const Login = (props) => {
                 />
                 <Text> {userInfo.username}</Text>
         
-                <TextInput 
+                <Input 
                 keyboardAppearance="dark"
                 name = 'password'
                 placeholder='password'

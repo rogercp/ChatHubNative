@@ -6,6 +6,7 @@ import IndividualBaordList from '../components/IndividualBoardList'
 import BackButtonBar from '../components/BackButtonBar'
 import Icon from 'react-native-vector-icons/AntDesign'
 
+
 const Boards = (props) => {
 
     const [data1,setData1] = useState([1,2,3])
@@ -14,23 +15,29 @@ const Boards = (props) => {
        }, [])
 
 
-
-
-      
-
   return (
 
 <>               
               
-<View >
+<View  style={{flexDirection:'row',justifyContent:"space-between",alignItems:"center"}}>
 <Icon
 style={styles.icon}
 borderRadius={100}
-size={50}
+size={40}
 raised
 name='leftcircleo'
 color='#3b5998'
 onPress={() => props.navigation.navigate('UserHome')}/>
+
+<Icon
+style={styles.icon}
+borderRadius={100}
+size={40}
+raised
+name='bars'
+color='#3b5998'
+onPress={() => props.navigation.navigate('UserHome')}/>
+
 
 </View>
 

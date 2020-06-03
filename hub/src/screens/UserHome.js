@@ -7,7 +7,8 @@ import NavBar from '../components/NavBar'
 import Boards from './Boards'
 import { Card, ListItem } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-
+import { Overlay } from 'react-native-elements';
+import CreateBoard from '../components/CreateBoard'
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -21,7 +22,11 @@ const UserHome = (props) => {
       username:'',
 
     })
+    const [visible, setVisible] = useState(false);
 
+    const toggleOverlay = () => {
+      setVisible(!visible);
+    };
 
    useEffect(() => {
     initUser()  
@@ -175,6 +180,7 @@ avatar: randomRgb()
      ]
      
 
+     
   return (
 <>
 
@@ -185,7 +191,15 @@ avatar: randomRgb()
     raised
     name='add'
     color='#3b5998'
+    onPress={toggleOverlay} 
     />
+
+
+<Overlay overlayStyle={{width:"80%"}} isVisible={visible}   onBackdropPress={toggleOverlay}>
+<CreateBoard/>
+</Overlay>
+
+
 
 <Card title="Your Boards" containerStyle={{paddingBottom: 50,height:"84%",width:"100%",top:0}} >
 <ScrollView containerStyle={{}}>
