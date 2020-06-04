@@ -1,19 +1,39 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import { Button, StyleSheet,View,FlatList,Text } from "react-native";
 import Axios from "axios";
 import NavBar from '../components/NavBar'
 import Icon from 'react-native-vector-icons/AntDesign'
 import AsyncStorage from '@react-native-community/async-storage';
+import { Avatar } from 'react-native-elements';
 
 
 const Settings = (props) => {
 
     Icon.loadFont();
+
+
+    const [userInfo,setUserInfo]= useState({
+        username:'',
+  
+      })
+  
+      
+
+
    useEffect(() => {
-   
+  
 
+
+
+
+    AsyncStorage.getItem('username').then((response)=>{
+        const item = JSON.parse(response)
+        console.log(item,"item in create board")
+        setUserInfo({...userInfo,username:item})
+    }
+    )
+    
        }, [])
-
        const logout = () =>{
         AsyncStorage.removeItem('token');
         props.navigation.navigate('Home');
@@ -22,31 +42,33 @@ const Settings = (props) => {
   return (
 <>
 
-   <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-   <View >
+<View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center',paddingTop:10}}>
 <Icon
 style={styles.icon}
 borderRadius={100}
-size={50}
+size={40}
 raised
 name='logout'
 color='#3b5998'
 onPress={logout}/>
 
+<View 
+>
+
+<Avatar
+size='xlarge'
+rounded
+  source={{
+    uri:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+  }}
+  onAccessoryPress={()=>console.log("pressed accessory")}
+  showAccessory
+/>
 </View>
-
-
-       
-<NavBar navigate={props.navigation.navigate}   props={props}/>
-
-        
-
-   <Text>Settings</Text>
-   
-
-
-
+<Text style={styles.text}>{userInfo.username}</Text>
    </View>
+   <NavBar navigate={props.navigation.navigate}   props={props}/>
 
 </>
   )
@@ -56,16 +78,17 @@ onPress={logout}/>
 const styles = StyleSheet.create({
     icon:{
         top:0,
+        right:0,
         marginTop:"9%",
-        padding:"2%"
-    
+        padding:"2%",
+        alignSelf:"flex-end"
     },
     buttonBox:{
       width: "25%",
       backgroundColor:'white'
      },
     text: {
-      marginHorizontal:50
+      padding:20
     }
   });
 

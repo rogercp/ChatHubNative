@@ -58,25 +58,31 @@ const CreateBoard = (props) => {
 <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
 
 <Input
-containerStyle={{width:"75%"}}
+containerStyle={{width:"80%"}}
   placeholder='search users'
   />
     <View style={styles.buttonBox}>
 
   <Button
-    style={styles.button}
         title="search"
                     />
 
+
+
 </View>
+
+
 </View>
- 
+<View style={{alignSelf:"center", width: "60%",borderRadius: 6,backgroundColor:'white',marginTop:20}}>
+                <Button
+                    style={styles.button}
+                        title="Enter"
+                    />
+
+</View>
   
 </>
   
-
-
-
   )
 };
 
@@ -86,15 +92,15 @@ const styles = StyleSheet.create({
         padding:"2%"
     },
     input: {
-        width:'60%',
+        width:'70%',
         height:40,
           margin:15,
           borderColor:'black',
           borderWidth:1
         },
         buttonBox:{
-            marginBottom: 10,
-            width: "25%",
+            marginBottom: 25,
+            width: "20%",
             borderRadius: 6,
             backgroundColor:'white'
            },

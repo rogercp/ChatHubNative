@@ -184,7 +184,7 @@ avatar: randomRgb()
   return (
 <>
 
-   <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+   <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center',paddingTop:10}}>
    <Icon
     borderRadius={100}
     size={60}
@@ -195,8 +195,13 @@ avatar: randomRgb()
     />
 
 
-<Overlay overlayStyle={{width:"80%"}} isVisible={visible}   onBackdropPress={toggleOverlay}>
+<Overlay overlayStyle={{width:"90%",height:"80%",backgroundColor:"lightgrey"}} isVisible={visible}   onBackdropPress={toggleOverlay}>
+<ScrollView containerStyle={{}}>
+
 <CreateBoard/>
+
+</ScrollView>
+
 </Overlay>
 
 

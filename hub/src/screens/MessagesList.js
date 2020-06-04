@@ -4,6 +4,7 @@ import Axios from "axios";
 import NavBar from '../components/NavBar'
 import { GiftedChat } from 'react-native-gifted-chat'
 import { Card, ListItem } from 'react-native-elements'
+import { Input,Badge } from 'react-native-elements';
 
 
 const MessagesList = (props) => {
@@ -86,19 +87,23 @@ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
 
 <>
 
-    <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-    <TextInput 
-               keyboardAppearance="dark"
-                name = 'username'
-                placeholder='search users'
-                autoCapitalize = "none"
-                autoCorrect= {false}
-                style={styles.input} 
-                // value={userInfo.username}
-                // onChangeText={(newValue)=>setUserInfo({...userInfo,username:newValue})}
-                />
-  <Card title="Messages" containerStyle={{paddingBottom: 30,width:"100%",height:"80%",top:0}} >
-  <ScrollView>
+    <View style={{top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center',paddingTop:30}}>
+    <View style={{flexDirection:"row",justifyContent:"space-evenly"}}>
+
+<Input
+containerStyle={{width:"78%"}}
+  placeholder='search users'
+  />
+    <View style={styles.buttonBox}>
+
+  <Button
+        title="search"
+                    />
+
+</View>
+</View>
+<Card title="Your Messages" containerStyle={{paddingBottom: 50,height:"83%",width:"100%",top:0}} >
+<ScrollView containerStyle={{}}>
      { users.map((u, i) => {
         return (
           <ListItem
@@ -129,12 +134,12 @@ avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
 };
 
 const styles = StyleSheet.create({
-buttonBox:{
-  marginBottom: 10,
-  width: "40%",
-  borderRadius: 6,
-  backgroundColor:'white'
- },
+    buttonBox:{
+        marginBottom: 25,
+        width: "20%",
+        borderRadius: 6,
+        backgroundColor:'white'
+       },
   text: {
     zIndex:10,
     fontSize: 30,
