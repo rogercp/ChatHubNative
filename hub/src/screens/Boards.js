@@ -1,11 +1,12 @@
 import React, {useEffect,useState} from "react";
-import { Text, StyleSheet,Button,View,Image,ImageBackground,FlatList,Dimensions} from "react-native";
+import { Text, StyleSheet,Button,View,Image,ImageBackground,FlatList,Dimensions,ScrollView} from "react-native";
 import AxiosWithAuth from '../helpers/AxiosWithAuth'
 import Axios from "axios";
 import IndividualBaordList from '../components/IndividualBoardList'
 import BackButtonBar from '../components/BackButtonBar'
 import Icon from 'react-native-vector-icons/AntDesign'
-
+import { Overlay } from 'react-native-elements';
+import CreateListsInsideBoardOverlay from '../components/CreateListsInsideBoardOverlay'
 
 const Boards = (props) => {
 
@@ -13,8 +14,12 @@ const Boards = (props) => {
    useEffect(() => {
   
        }, [])
+       const [visible, setVisible] = useState(false);
 
-
+       const toggleOverlay = () => {
+        setVisible(!visible);
+      };
+  
   return (
 
 <>               
@@ -36,7 +41,18 @@ size={40}
 raised
 name='bars'
 color='#3b5998'
-onPress={() => props.navigation.navigate('UserHome')}/>
+onPress={toggleOverlay} />
+    
+
+
+<Overlay overlayStyle={{width:"90%",height:"80%",backgroundColor:"lightgrey"}} isVisible={visible}   onBackdropPress={toggleOverlay}>
+<ScrollView containerStyle={{}}>
+
+<CreateListsInsideBoardOverlay/>
+
+</ScrollView>
+
+</Overlay>
 
 
 </View>

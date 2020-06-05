@@ -18,14 +18,14 @@ size={50}
   name='home'
   color='#3b5998'
   onPress={() => props.navigate('UserHome')}/>
-
+{/* 
 <Icon
 borderRadius={100}
  size={50}
   raised
   name='search1'
   color='#3b5998'
-  onPress={() => props.navigate('Search')}/>
+  onPress={() => props.navigate('Search')}/> */}
 <Icon
 borderRadius={100}
 size={50}

@@ -1,9 +1,19 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import { View, Text, StyleSheet,Dimensions,ScrollView } from 'react-native'
-import { Card, ListItem, Button, Icon } from 'react-native-elements'
+import { Card, ListItem, Button } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/AntDesign'
+import EditIndiviualBoardList from '../components/EditIndiviualBoardList'
+import { Overlay } from 'react-native-elements';
 
 
 const IndividualBaordList = (props) => {
+
+    Icon.loadFont();
+    const [visible, setVisible] = useState(false);
+
+    const toggleOverlay = () => {
+     setVisible(!visible);
+   };
 
 
    useEffect(() => {
@@ -12,11 +22,35 @@ const IndividualBaordList = (props) => {
 
   return (
 
-<ScrollView>
-  <Card
-  title='HELLO WORLD'
-  containerStyle={{ }}
-  >
+    
+<ScrollView >
+  <Card style={{}}>
+      <View style={{width:"100%",height:"5%",flexDirection:'row',justifyContent:"space-between",alignItems:"center"}}>
+
+
+    <Text style={{fontSize:20}}>Card</Text>
+
+    <Icon
+    borderRadius={100}
+    size={50}
+    raised
+    name='ellipsis1'
+    color='#3b5998'
+    onPress={toggleOverlay} 
+  />
+
+<Overlay overlayStyle={{width:"90%",height:"80%",backgroundColor:"lightgrey"}} isVisible={visible}   onBackdropPress={toggleOverlay}>
+<ScrollView containerStyle={{}}>
+
+<EditIndiviualBoardList/>
+
+</ScrollView>
+
+</Overlay>
+
+
+      </View>
+      <View style={{paddingBottom:100}}>
   <Text style={{marginBottom: 10}}>
     The idea with React Native Elements is more about component structure than actual design.
     <Text>{props.item}</Text>
@@ -36,6 +70,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 
     buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
     title='VIEW NOW' />
+    </View>
 </Card>
 
   

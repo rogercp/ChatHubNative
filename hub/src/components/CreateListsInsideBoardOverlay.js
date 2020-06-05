@@ -6,23 +6,22 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import AsyncStorage from '@react-native-community/async-storage';
 
 
-const CreateBoard = (props) => {
+const CreateListsInsideBoardOverlay = (props) => {
 
-    const [userInfo,setUserInfo]= useState({
-        username:'',
-  
-      })
+  const [userInfo,setUserInfo]= useState({
+    username:'',
 
+  })
 
 
    useEffect(() => {
-
+  
     AsyncStorage.getItem('username').then((response)=>{
-        const item = JSON.parse(response)
-        console.log(item,"item in create board")
-        setUserInfo({...userInfo,username:item})
-    }
-    )
+      const item = JSON.parse(response)
+      console.log(item,"item in create board")
+      setUserInfo({...userInfo,username:item})
+  }
+  )
     
        }, [])
 
@@ -30,20 +29,11 @@ const CreateBoard = (props) => {
 
 <>               
 
-{/*            
-<TextInput 
-               keyboardAppearance="dark"
-                name = 'username'
-                placeholder='name your board'
-                autoCapitalize = "none"
-                autoCorrect= {false}
-                style={styles.input} 
-               
-                /> */}
-
 <Input
-  placeholder='Name Your Board'
+  placeholder='Add List'
 />
+
+
 <Text style={{ textAlign: 'center',}}>Add Users to Board</Text>
 
 <View style={{display:"flex",justifyContent:"center",alignItems:"center" }} >
@@ -69,6 +59,7 @@ containerStyle={{width:"80%"}}
 
 
 </View>
+
 <View style={{alignSelf:"center", width: "60%",borderRadius: 6,backgroundColor:'white',marginTop:20}}>
                 <Button
                     style={styles.button}
@@ -102,4 +93,4 @@ const styles = StyleSheet.create({
            },
 });
 
-export default CreateBoard;
+export default CreateListsInsideBoardOverlay;
